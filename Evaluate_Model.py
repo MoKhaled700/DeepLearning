@@ -7,6 +7,7 @@ PATH = 'Resources/cnn14.pth'
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 test = CustomData('Resources/test.csv')
 
+loader = torch.utils.data.DataLoader(test, shuffle=False)
 loaded_model = ConvNet()
 loaded_model.load_state_dict(torch.load(PATH)) # it takes the loaded dictionary, not the path file itself
 loaded_model.to(device)
